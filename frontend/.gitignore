@@ -3,6 +3,9 @@ node_modules/
 npm-debug.log
 dist/
 
+# Next.js build output
+.next/
+
 # Python (backend)関連
 venv/
 *.pyc
