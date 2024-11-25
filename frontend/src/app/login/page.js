@@ -14,13 +14,13 @@ export default function LoginPage() {
     e.preventDefault();
 
     try {
-      const response = await fetch('http://localhost:8000/login', {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password }),
       });
 
-      if (response.ok) {
+      if (response.ok) {　
         alert('ログイン成功');
         router.push('/main');
       } else {
@@ -34,7 +34,6 @@ export default function LoginPage() {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      {/* ログインフォーム */}
       <form
         onSubmit={handleLogin}
         className="w-[400px] bg-white p-8 rounded-lg shadow-lg"
@@ -42,7 +41,6 @@ export default function LoginPage() {
         <h1 className="text-3xl font-bold text-gray-800 mb-6 text-center">
           ログイン
         </h1>
-        {/* エラーメッセージ */}
         {errorMessage && (
           <p className="text-red-500 text-sm mb-4 text-center">
             {errorMessage}
