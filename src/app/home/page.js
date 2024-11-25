@@ -8,29 +8,29 @@ function PropertyCards() {
   const properties = [
     {
       id: 1,
-      title: 'H¹O 日本橋茅場町',
-      description: '「茅場町」駅直結徒歩1分。都内各所へマルチアクセス可能',
-      location: '中央区',
-      access: '「茅場町」駅 直結 徒歩1分/「八丁堀」駅 徒歩4分/「日本橋」駅 徒歩8分',
-      capacity: '3名〜22名入居可能',
+      title: 'ビズトライ 三軒茶屋',
+      description: 'テキスト',
+      location: '世田谷区',
+      access: 'テキスト',
+      capacity: 'テキスト',
       image: '/images/property1.jpg',
     },
     {
       id: 2,
-      title: 'H¹O 日本橋小舟町',
-      description: '中央区日本橋アドレス。3駅5路線利用可能なビジネス拠点。',
-      location: '中央区',
-      access: '「人形町」駅 徒歩5分/「三越前」駅 徒歩6分/「新日本橋」駅 徒歩7分',
-      capacity: '5名〜24名入居可能',
+      title: 'ビズトライ 中目黒',
+      description: 'テキスト',
+      location: '目黒区',
+      access: 'テキスト',
+      capacity: 'テキスト',
       image: '/images/property2.jpg',
     },
     {
       id: 3,
-      title: 'H¹O 日本橋室町',
-      description: '7つの駅が徒歩圏内。伝統を守りつつ進化も続ける都市。',
-      location: '中央区',
-      access: '「三越前」駅 徒歩2分/「新日本橋」駅 徒歩5分/「神田」駅 徒歩10分/「東京」駅 徒歩10分',
-      capacity: '2名〜27名入居可能',
+      title: 'ビズトライ 横浜',
+      description: 'テキスト',
+      location: '横浜市',
+      access: 'テキスト',
+      capacity: 'テキスト',
       image: '/images/property3.jpg',
     },
   ];
@@ -99,7 +99,7 @@ export default function Header() {
 
         <nav className="flex space-x-6 text-sm font-medium text-gray-700">
           <a href="#" className="hover:text-orange-500">TOP</a>
-          <a href="#" className="hover:text-orange-500">H¹Oとは</a>
+          <a href="#" className="hover:text-orange-500">ビズトライとは</a>
           <a href="#" className="hover:text-orange-500">物件一覧</a>
           <a href="#" className="hover:text-orange-500">サービス・施設</a>
           <a href="#" className="hover:text-orange-500">契約条件・利用料</a>
