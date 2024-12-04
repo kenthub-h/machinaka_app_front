@@ -1,7 +1,38 @@
 'use client';
 
+import 'leaflet/dist/leaflet.css';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+
+// 地図部分
+function MapSection() {
+  return (
+    <div className="px-8 py-6 bg-gray-100">
+      <h2 className="text-lg font-bold mb-4">地図上で物件を選択してください</h2>
+      <MapContainer
+        center={[35.6895, 139.6917]}
+        zoom={12}
+        className="w-full h-96 rounded"
+        whenReady={(mapInstance) => {
+          // 地図が初期化済みである場合を防止する
+          const container = mapInstance.target.getContainer();
+          if (container._leaflet_id) {
+            container._leaflet_id = null;
+          }
+        }}
+      >
+        <TileLayer
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          attribution="&copy; <a href='https://www.openstreetmap.org/copyright'>OpenStreetMap</a> contributors"
+        />
+        <Marker position={[35.6895, 139.6917]}>
+          <Popup>東京都中心部</Popup>
+        </Marker>
+      </MapContainer>
+    </div>
+  );
+}
 
 // PropertyCards コンポーネント
 function PropertyCards() {
@@ -144,45 +175,12 @@ export default function Header() {
         {/* タブのコンテンツ */}
         <div className="px-8 py-6 bg-gray-100">
           {activeTab === 'list' ? (
-            <div>
-              <h2 className="text-lg font-bold mb-4">エリアから絞り込む</h2>
-              <div className="grid grid-cols-3 gap-4 text-sm">
-                <div>
-                  <h3 className="font-semibold mb-2">首都圏 (17)</h3>
-                  <div className="flex flex-wrap gap-2">
-                    <button className="px-4 py-1 bg-gray-200 rounded">中央区 (5)</button>
-                    <button className="px-4 py-1 bg-gray-200 rounded">新宿区 (1)</button>
-                    <button className="px-4 py-1 bg-gray-200 rounded">渋谷区 (3)</button>
-                  </div>
-                </div>
-                <div>
-                  <h3 className="font-semibold mb-2">関西 (3)</h3>
-                  <div className="flex flex-wrap gap-2">
-                    <button className="px-4 py-1 bg-gray-200 rounded">大阪市北区 (1)</button>
-                    <button className="px-4 py-1 bg-gray-200 rounded">大阪市中央区 (1)</button>
-                  </div>
-                </div>
-                <div>
-                  <h3 className="font-semibold mb-2">九州 (1)</h3>
-                  <div className="flex flex-wrap gap-2">
-                    <button className="px-4 py-1 bg-gray-200 rounded">福岡市博多区 (1)</button>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <PropertyCards />
           ) : (
-            <div>
-              <h2 className="text-lg font-bold mb-4">地図上で物件を選択してください</h2>
-              <div className="w-full h-96 bg-gray-300 flex items-center justify-center">
-                <p className="text-gray-700">ここに地図が表示されます（モック）。</p>
-              </div>
-            </div>
+            <MapSection />
           )}
         </div>
       </div>
-
-      {/* 物件カード部分 */}
-      <PropertyCards />
     </div>
   );
 }
