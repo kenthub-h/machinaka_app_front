@@ -21,8 +21,15 @@ export default function LoginPage() {
       });
 
       if (response.ok) {
+        const data = await response.json();
+        // トークンを保存 (localStorageに保存)
+        localStorage.setItem('access_token', data.access_token);
         alert('ログイン成功');
-        router.push('/main');
+        router.push('/main'); // ログイン後、プロフィール画面に遷移
+      // トークン前のコード
+      // if (response.ok) {
+      //   alert('ログイン成功');
+      //   router.push('/main');
       } else {
         const errorData = await response.json();
         setErrorMessage(errorData.detail || 'ログインに失敗しました');
