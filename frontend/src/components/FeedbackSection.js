@@ -1,3 +1,4 @@
+// components/FeedbackSections.js
 const FeedbackSection = ({ feedback }) => {
     return (
       <div>
